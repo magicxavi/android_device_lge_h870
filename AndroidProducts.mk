@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aoscp_h870.mk
+    $(LOCAL_DIR)/aoscp.mk
