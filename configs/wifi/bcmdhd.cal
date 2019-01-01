@@ -5,6 +5,7 @@ vendid=0x14e4
 devid=0x43ab
 manfid=0x2d0
 prodid=0x06e4
+ccode=ALL
 
 #Dummy Mac. Address
 macaddr=00:90:0C:BA:CD:88
