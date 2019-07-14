@@ -1,2 +1,2 @@
-add_lunch_combo aoscp_h870-userdebug
-add_lunch_combo aoscp_h870-eng
+add_lunch_combo havoc_h870-userdebug
+add_lunch_combo havoc_h870-eng

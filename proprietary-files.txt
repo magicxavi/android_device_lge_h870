@@ -2,6 +2,5 @@
 vendor/firmware/BCM4345C0_003.001.025.0162.0298.HCD:vendor/firmware/BCM4345C0.hcd
 
 # WiFi
-vendor/firmware/fw_bcmdhd.bin
-vendor/firmware/fw_bcmdhd_apsta.bin
-vendor/firmware/fw_bcmdhd_mfg.bin
+vendor/etc/firmware/fw_bcmdhd.bin
+vendor/etc/firmware/fw_bcmdhd_apsta.bin
