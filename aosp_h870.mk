@@ -21,6 +21,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Inherit from h870 device
 $(call inherit-product, device/lge/h870/device.mk)
 
+# Inherit some common AEX stuff.
+$(call inherit-product, vendor/aosp/common.mk)
+
+# Boot animation res
+TARGET_BOOT_ANIMATION_RES := 2140
+
 # Set those variables here to overwrite the inherited values.
 PRODUCT_DEVICE := h870
 PRODUCT_NAME := aosp_h870
