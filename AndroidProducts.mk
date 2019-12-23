@@ -14,4 +14,10 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/havoc_h870.mk
+    $(LOCAL_DIR)/pa_h870.mk
+
+	
+COMMON_LUNCH_CHOICES := \
+    pa_h870-user \
+    pa_h870-userdebug \
+    pa_h870-eng
