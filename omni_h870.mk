@@ -14,15 +14,34 @@
 # limitations under the License.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+VENDOR_EXCEPTION_PATHS := lge \
+    omni
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Sample: This is where we'd set a backup provider if we had one
+# $(call inherit-product, device/sample/products/backup_overlay.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+# must be before including omni part
+TARGET_BOOTANIMATION_SIZE := 1080p
+
+DEVICE_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# get the rest of aosp stuff after ours
+$(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system_arm64.mk)
 
 # Inherit from h870 device
 $(call inherit-product, device/lge/h870/device.mk)
+
+ALLOW_MISSING_DEPENDENCIES := true
 
 # Security patch level
 PLATFORM_SECURITY_PATCH_OVERRIDE := 2019-05-01
@@ -31,7 +50,7 @@ VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH_OVERRIDE)
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_DEVICE := h870
-PRODUCT_NAME := lineage_h870
+PRODUCT_NAME := omni_h870
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LG-H870
 PRODUCT_MANUFACTURER := LGE
